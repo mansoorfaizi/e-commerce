@@ -28,7 +28,7 @@ INSTALLED_APPS = [
 
     # custom app
     'api',
-    'account'
+    'account',
 ]
 
 MIDDLEWARE = [
