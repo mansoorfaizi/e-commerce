@@ -1,13 +1,14 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.core.validators import MinValueValidator, MaxValueValidator
 User = get_user_model()
 
 from .product import Product as Product
 
 
 class Review (models.Model):
-    id = models.AutoField(primary_key=True)
-    rating = models.IntegerField()
+    
+    rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)] , blank=True, null=True )
     comment = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
