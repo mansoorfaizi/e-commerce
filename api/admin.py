@@ -1,9 +1,12 @@
 from django.contrib import admin
-from .models.product import Product
-from .models.productImage import ProductImage
-from .models.review import Review   
-from .models.conversation import Conversation
-from .models.support_chat import SupportChat
+from api.models.category import Category
+from api.models.Order  import Order, OrderItem
+from api.models.Payment import Payment
+from .models.product import Product, ProductImage
+from api.models.ReturnOrders import ReturnOrder
+from .models.review import Review
+from api.models.shipping_address import ShippingAddress
+from .models.support_chat import SupportChat, Conversation
 
 
 admin.site.register(Product)

@@ -1,12 +1,20 @@
 from django.db import models
-from .conversation import Conversation
+from .timestamp import TimeStampedModel
+from django.contrib.auth.models import User
 
-class SupportChat(models.Model):
+class Conversation(TimeStampedModel):
+    subject = models.CharField(max_length=255)
+    is_done = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Conversation: {self.subject} (User: {self.user.username})"
+
+
+class SupportChat(TimeStampedModel):
     conversation = models.ForeignKey(Conversation, on_delete=models.CASCADE, related_name='support_chats')
     message = models.TextField()
     is_read = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='support_chats')
 
     def __str__(self):
         return f"SupportChat #{self.id} (Conversation #{self.conversation.id}) - {self.message[:40]}"

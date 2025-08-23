@@ -1,6 +1,7 @@
 from django.db import models
+from .timestamp import TimeStampedModel
 
-class Product(models.Model):
+class Product(TimeStampedModel):
     name = models.CharField(max_length=255)
     description = models.TextField()
     price = models.DecimalField(
@@ -14,10 +15,25 @@ class Product(models.Model):
         decimal_places=2,
         default=0
     )
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
     
     def __str__(self):
         return self.name
     class Meta:
         ordering = ['-created_at'] 
+
+
+
+
+class ProductImage(TimeStampedModel):
+    image = models.ImageField(upload_to='product_images/')
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        related_name='images'
+    )
+
+    def __str__(self):
+        return f"Image for {self.product.name} (ID: {self.id})"
+    
+    class Meta:
+        ordering = ['-created_at']
