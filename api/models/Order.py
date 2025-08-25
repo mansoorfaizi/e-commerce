@@ -1,14 +1,14 @@
 from django.db import models
 from .timestamp import TimeStampedModel
-from django.contrib.auth.models import User
 from api.models.product import Product
+from django.conf import settings
 
 
 class Order(TimeStampedModel):
     date = models.DateField()
     status = models.CharField(max_length=100)
     total_price = models.DecimalField(max_digits=10, decimal_places=2)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='orders')
 
     def __str__(self):
         return f"Order #{self.id} - {self.user.username} - {self.status}"
