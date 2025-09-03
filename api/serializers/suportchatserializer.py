@@ -8,7 +8,11 @@ class ConversationSerilizer(serializers.ModelSerializer):
 
 class SupportChatSerializer(serializers.ModelSerializer):
     conversation = ConversationSerilizer(read_only = True)
+<<<<<<< HEAD
     sender = serializers.SerializerMethodField(read_only = True)
+=======
+    sender = serializers.StringRelatedField(read_only = True)
+>>>>>>> 68aa4c1bce64bde07099c7310e054789150ee9cf
     class Meta:
         model = SupportChat
         fields = '__all__'
