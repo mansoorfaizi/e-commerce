@@ -1,9 +1,9 @@
 from django.contrib import admin
 from api.models.category import Category
-from api.models.Order  import Order, OrderItem
-from api.models.Payment import Payment
+from api.models.order  import Order, OrderItem
+from api.models.payment import Payment
 from .models.product import Product, ProductImage
-from api.models.ReturnOrders import ReturnOrder
+from api.models.return_orders import ReturnOrder
 from .models.review import Review
 from api.models.shipping_address import ShippingAddress
 from .models.support_chat import SupportChat, Conversation

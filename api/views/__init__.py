@@ -1,1 +1,1 @@
-from api.views.catergory_view import Category
+from api.views.category import Category

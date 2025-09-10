@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from ..models import ReturnOrders
+from ..models import return_orders
 
 class ReturnOrderSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ReturnOrders
+        model = return_orders
         fields = '__all__'

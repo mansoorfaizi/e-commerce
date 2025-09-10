@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from api.views.catergory_view import CategoryViewSet
+from api.views.category import CategoryViewSet
 
 
 router = DefaultRouter()
