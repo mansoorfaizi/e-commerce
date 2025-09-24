@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from ..models import Payment
-from ..serializers import PaymentSerializer
+from api.models.payment import Payment
+from api.serializers.payment import PaymentSerializer
 
 class PaymentViewSet(viewsets.ModelViewSet):
     queryset = Payment.objects.all()

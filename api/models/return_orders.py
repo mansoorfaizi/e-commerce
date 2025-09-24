@@ -1,6 +1,6 @@
 from django.db import models
 from .timestamp import TimeStampedModel
-from .Order import Order
+from .order import Order
 
 class ReturnOrder(TimeStampedModel):
     STATUS_CHOICES = [

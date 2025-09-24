@@ -1,6 +1,6 @@
 from django.db import models
 from .timestamp import TimeStampedModel
-from .Order import Order
+from .order import Order
 
 class Payment(TimeStampedModel):
     method = models.CharField(max_length=255)

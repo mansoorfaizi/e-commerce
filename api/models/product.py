@@ -1,7 +1,15 @@
 from django.db import models
 from .timestamp import TimeStampedModel
+from .category import Category
 
 class Product(TimeStampedModel):
+    category = models.ForeignKey(
+        Category,
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name='products'
+    )
     name = models.CharField(max_length=255)
     description = models.TextField()
     price = models.DecimalField(
